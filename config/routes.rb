@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
   
-  root to: 'items#index'
+  root to: 'public/items#index'
 
   namespace :admin do
     resources :items
