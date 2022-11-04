@@ -22,7 +22,7 @@
             </div>
           </div>
             <% item.images.each do |image| %>
-              <%= image_tag image %> <br>
+              <%= image_tag image.variant(resize: '500x500') %> <br>
             <% end %>
         </div>
         <% end %>
