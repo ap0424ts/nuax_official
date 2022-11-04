@@ -5,7 +5,7 @@ class Size < ActiveHash::Base
     { id: 3, name: 'M' },
     { id: 4, name: 'L' },
     { id: 5, name: 'XL' },
-    { id: 5, name: 'Free' },
+    { id: 6, name: 'Free' },
   ]
 
   include ActiveHash::Associations
