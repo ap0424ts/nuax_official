@@ -10,12 +10,20 @@
 | first_name_kana     | string     | null: false                    |
 | email               | string     | null: false, unique: true      |
 | encrypted_password  | string     | null: false                    |
-| admin               | boolen     | default: false                 |
-
 
 ### Association
 - has_one    :shipping, dependent: :destroy
 - has_many   :orders
+
+## adminsテーブル
+
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| admin               | boolen     | default: false                 || 
+
+### Association
+- has_many   :orders
+- has_many   :items
 
 ## itemsテーブル
 
@@ -23,7 +31,7 @@
 | -------------- | ---------- | ------------------------------- |
 | name           | string     | null: false                     |
 | content        | text       |                                 |
-| material       | text       | null: false                     |
+| material       | string     | null: false                     |
 | centimeter     | text       | null: false                     |
 | price          | integer    | null: false                     |
 | reservation_id | integer    | null: false                     |
@@ -35,6 +43,7 @@
 - has_many   :cart_items, dependent: :destroy
 - belongs_to :size
 - belongs_to :reservation
+- belongs_to :admin
 - has_many_atached : images
 
 
