@@ -1,24 +1,103 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| last_name           | string     | null: false                    |
+| first_name          | string     | null: false                    |
+| last_name_kana      | string     | null: false                    |
+| first_name_kana     | string     | null: false                    |
+| email               | string     | null: false, unique: true      |
+| encrypted_password  | string     | null: false                    |
+| admin               | boolen     | default: false                 |
 
-* Ruby version
 
-* System dependencies
+### Association
+- has_one    :shipping, dependent: :destroy
+- has_many   :orders
 
-* Configuration
+## itemsテーブル
 
-* Database creation
+| Column         | Type       | Options                         |
+| -------------- | ---------- | ------------------------------- |
+| name           | string     | null: false                     |
+| content        | text       |                                 |
+| material       | text       | null: false                     |
+| centimeter     | text       | null: false                     |
+| price          | integer    | null: false                     |
+| reservation_id | integer    | null: false                     |
+| size_id        | integer    | null: false                     |
 
-* Database initialization
+### Association
+- has_many   :item_orders
+- has_many   :orders, through: :item_orders
+- has_many   :cart_items, dependent: :destroy
+- belongs_to :size
+- belongs_to :reservation
+- has_many_atached : images
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## cartsテーブル
 
-* Deployment instructions
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
 
-* ...
+### Association
+- has_many :cart_items, dependent: :destroy
+
+## cart_itemsテーブル
+
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| item_id    | references | null: false, foreign_key: true |
+| cart_id    | references | null: false, foreign_key: true |
+| quantity   | integer    | null: false                     |
+
+### Association
+- belongs_to :item
+- belongs_to :cart
+
+## item_ordersテーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| item_id  | references | null: false, foreign_key: true |
+| order_id | references | null: false, foreign_key: true |
+| quantity | integer    | null: false                    |
+
+### Association
+- belongs_to :item
+- belongs_to :order
+
+
+## ordersテーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user_id      | references | null: false, foreign_key: true |
+| shippings_id | references | null: false, foreign_key: true |
+| quantity     | integer    | null: false                    |
+
+### Association
+- belongs_to :user
+- belongs_to :shipping
+- has_many   :item_orders, dependent: :destroy
+- has_many   :items, through: :item_orders
+
+## shippingsテーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| post_code       | string     | null: false                    |
+| state           | string     | null: false                    |
+| city            | string     | null: false                    |
+| addres          | string     | null: false                    |
+| building        | string     |                                |
+| phone_number    | string     | null: false                    |
+| user_id         | references | null: false, foreign_key: true |
+| order_id        | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- has_one :order
