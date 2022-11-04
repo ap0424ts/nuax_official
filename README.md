@@ -23,7 +23,7 @@
 | -------------- | ---------- | ------------------------------- |
 | name           | string     | null: false                     |
 | content        | text       |                                 |
-| material       | text       | null: false                     |
+| material       | string     | null: false                     |
 | centimeter     | text       | null: false                     |
 | price          | integer    | null: false                     |
 | reservation_id | integer    | null: false                     |
