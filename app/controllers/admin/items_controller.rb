@@ -3,9 +3,6 @@ class Admin::ItemsController < ApplicationController
     @items = Item.all.order("created_at DESC")
   end
 
-  def show
-  end
-
   def new
     @item = Item.new
   end
@@ -19,7 +16,14 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def edit
+  end
+
+  def destroy
   end
 
   private

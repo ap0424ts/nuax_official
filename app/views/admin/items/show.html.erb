@@ -1,2 +1,57 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<%= render "shared/header" %>
+
+<%# 商品の概要 %>
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @item.name %>
+    </h2>
+    <div class="item-img-content">
+      <% @item.images.each do |image| %>
+        <%= image_tag image.variant(resize: '500x500') %> <br>
+      <% end %>
+    </div>
+    <div class="item-price-box">
+      <span class="item-price">
+        ¥<%= @item.price %>
+      </span>
+    </div>
+
+    <% if admin_signed_in? %>
+      <%= link_to "商品の編集", edit_admin_item_path(@item.id), method: :get, class: "item-red-btn" %>
+      <p class="or-text">or</p>
+      <%= link_to "削除", "/admin/items/#{@item.id}", method: :delete, class:"item-destroy" %>
+    <%# else %>
+      <%# ここにカート機能へ追加を挿入する %>
+    <% end %>
+
+
+    <div class="item-explain-box">
+      <span><%= @item.content %></span>
+      <span><%= @item.material %></span>
+      <span><%= @item.centimeter %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <td class="detail-value">
+            <% if @item.reservation.id == 2 %>
+              この商品は即時納品可能です
+            <% else %>
+              この商品は予約商品です
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  <%# /商品の概要 %>
+
+  <%# 下部ボタン %>
+  <div class="sell-btn-contents">
+    <%=link_to 'もどる', admin_items_path, class:"back-btn" %>
+  </div>
+  <%# /下部ボタン %>
+
+<%= render "shared/footer" %>
