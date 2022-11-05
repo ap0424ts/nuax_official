@@ -1,4 +1,6 @@
 class Admin::ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+
   def index
     @items = Item.all.order("created_at DESC")
   end
@@ -17,15 +19,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to admin_item_path(@item.id)
     else
@@ -34,9 +33,15 @@ class Admin::ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy
+    redirect_to admin_items_path
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:name, :content, :material, :centimeter, :price, :reservation_id, :size_id, images:[])
