@@ -1,0 +1,63 @@
+.form-wrap{
+  height:calc(100vh - 100px);
+  width:100vw;
+  margin-top:100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top:55px;
+}
+
+.form-header{
+  width:300px;
+  margin-bottom:10px;
+  display:flex;
+  justify-content: flex-start;
+}
+
+.form-text-wrap{
+  margin-top:10px;
+  margin-bottom:5px;
+}
+
+.form-text, .login-btn, .form-header-text, .form-footer-text, .sign-up{
+  font-size: 10px;
+  letter-spacing: 1px;
+  color:black;
+}
+
+
+.input-default{
+  width:300px;
+  border:1px solid black;
+  border-radius : 0;
+}
+
+.login-red-btn{
+  height:30px;
+  margin-top:20px;
+  width:300px;
+  border:1px solid black;
+  border-radius : 0;
+  color:white;
+  background-color:black;
+}
+
+.form-footer{
+  width:300px;
+  margin-top:20px;
+}
+
+.form-footer-text{
+  text-align:center;
+}
+
+.sign-up{
+  height:30px;
+  margin-top:20px;
+  width:300px;
+  border:1px solid black;
+  border-radius : 0;
+  color:white;
+  background-color:black;
+}

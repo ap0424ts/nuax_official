@@ -1,4 +1,5 @@
-<h1>Admin::Items#edit</h1>
+<%= render "shared/header"%>
+
 <div class="items-sell-contents">
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
@@ -9,12 +10,8 @@
     <div class="img-upload">
       <div class="weight-bold-text">
         商品画像
-        <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
         <%= f.file_field :images, multiple: true, id:"item-image"  %>
       </div>
     </div>
@@ -24,27 +21,23 @@
     <div class="new-items">
       <div class="weight-bold-text">
         商品名
-        <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
           説明
-          <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :content, class:"items-text", id:"item-info", placeholder:"商品の説明" ,rows:"7" ,maxlength:"1000" %>
       </div>
       <div class="items-explain">
         <div class="weight-bold-text">
           素材
-          <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :material, class:"items-text", id:"item-info", placeholder:"商品の素材" ,rows:"7" ,maxlength:"1000" %>
       </div>
       <div class="items-explain">
         <div class="weight-bold-text">
-          実寸表記
-          <span class="indispensable">必須</span>
+          実寸
         </div>
         <%= f.text_area :centimeter, class:"items-text", id:"item-info", placeholder:"商品の実寸" ,rows:"7" ,maxlength:"1000" %>
       </div>
@@ -58,7 +51,6 @@
           <div class="price-text">
             <span>価格</span>
           </div>
-          <span class="sell-yen">¥</span>
           <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"価格" %>
         </div>
       </div>
@@ -69,23 +61,23 @@
     <div class="items-detail">
       <div class="form">
         <div class="weight-bold-text">
-          サイズ
-        </div>
-        <%= f.collection_select(:size_id, Size.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
-        <div class="weight-bold-text">
           納品時期
         </div>
         <%= f.collection_select(:reservation_id, Reservation.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-
       </div>
     </div>
     <%# /商品の詳細 %>
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "編集を完了する" ,class:"sell-btn" %>
+      <%= f.submit "編集を完了する" ,class:"sell-btn" %><br>
+    </div>
+    <div class="back-btn-box">
       <%=link_to 'もどる', admin_item_path(@item.id), class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
   <% end %>
+</div>
+
+<%= render "shared/footer"%>

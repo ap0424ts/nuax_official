@@ -1,14 +1,24 @@
 <header class='top-page-header'>
+
+  <div class='logo'>
+    <%= link_to 'Nuax', root_path, class:"logo-link" %>
+  </div>
+
   <div class='nav'>
+    <ul class='lists-left'>
+      <li><%= link_to 'SHOP', "#", class: "shop-list" %></li>
+      <li><%= link_to 'COLLECTION', "#", class: "collection-list" %></li>
+    </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.first_name, "#", class: "user-nickname" %></li> 
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
+        <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <li><%= link_to 'CART', "#", class: "cart" %></li>
       <% elsif admin_signed_in? %>
-        <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "logout" %></li> 
+        <li><%= link_to 'LOGOUT(admin)', destroy_admin_session_path, method: :delete, class: "logout" %></li> 
+        <li><%= link_to '出品する', '/admin/items/new', class: "cart" %></li>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <li><%= link_to 'LOGIN', new_user_session_path, class: "login" %></li>
+        <li><%= link_to 'CART', "#", class: "cart" %></li>
       <% end %>
     </ul>
   </div>
