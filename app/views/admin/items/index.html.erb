@@ -1,7 +1,4 @@
-<h1>Admin::Items#index</h1>
-<%= link_to('/admin/items/new', class: 'purchase-btn') do %>
-  <span class='purchase-btn-text'>出品する</span>
-<% end %>
+<%= render "shared/header"%>
 
   <%# 商品一覧 %>
   <div class='item-contents'>
@@ -10,24 +7,21 @@
       <% @items.each do |item| %>
       <li class='list'>
         <%= link_to admin_item_path(item.id) do %>
+        <%= image_tag item.images[0].variant(resize: '398x498') %>
         <div class='item-info'>
-          <h3 class='item-name'>
-            商品名
+          <div class='item-name'>
             <%= item.name %>
-          </h3>
+          </div>
           <div class='item-price'>
-            価格
-            <span><%= item.price %>円<br></span>
+            <span>¥<%= item.price.to_s(:delimited) %><br></span>
             <div class='star-btn'>
             </div>
           </div>
-            <% item.images.each do |image| %>
-              <%= image_tag image.variant(resize: '500x500') %> <br>
-            <% end %>
         </div>
         <% end %>
       </li>
       <% end %>
     </ul>
   </div>
-  <%# /商品一覧 %>
+
+<%= render "shared/footer"%>

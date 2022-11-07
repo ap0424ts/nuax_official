@@ -1,0 +1,20 @@
+footer{
+  margin-top:25px;
+  height:45px;
+  width: 100vw;
+  padding-top:10px;
+  border-top:1px solid black;
+}
+
+.lists-footer{
+  width: 100vw;
+  padding: 0 40px;
+  display:flex;
+  justify-content: space-around;
+}
+
+.footer-link{
+  font-size: 12px;
+  letter-spacing: 1px;
+  color:black;
+}

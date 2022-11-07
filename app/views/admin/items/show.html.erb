@@ -2,56 +2,45 @@
 
 <%# 商品の概要 %>
 <div class="item-show">
-  <div class="item-box">
-    <h2 class="name">
-      <%= @item.name %>
-    </h2>
-    <div class="item-img-content">
-      <% @item.images.each do |image| %>
-        <%= image_tag image.variant(resize: '500x500') %> <br>
-      <% end %>
-    </div>
-    <div class="item-price-box">
-      <span class="item-price">
-        ¥<%= @item.price %>
-      </span>
-    </div>
 
-    <% if admin_signed_in? %>
-      <%= link_to "商品の編集", edit_admin_item_path(@item.id), method: :get, class: "item-red-btn" %>
-      <p class="or-text">or</p>
-      <%= link_to "削除", "/admin/items/#{@item.id}", method: :delete, class:"item-destroy" %>
-    <%# else %>
-      <%# ここにカート機能へ追加を挿入する %>
-    <% end %>
-
-
+  <div class="item-box-left">
     <div class="item-explain-box">
-      <span><%= @item.content %></span>
-      <span><%= @item.material %></span>
-      <span><%= @item.centimeter %></span>
+      <span class="item-explain-contents"><%= @item.name %></span><br>
+      <span class="item-explain-contents"><%= @item.content %></span><br>
+      <span class="item-explain-contents"><%= @item.material %></span><br>
+      <span class="item-explain-contents"><%= @item.centimeter %></span><br>
     </div>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <td class="detail-value">
-            <% if @item.reservation.id == 2 %>
-              この商品は即時納品可能です
-            <% else %>
-              この商品は予約商品です
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
-</div>
-  <%# /商品の概要 %>
 
-  <%# 下部ボタン %>
-  <div class="sell-btn-contents">
-    <%=link_to 'もどる', admin_items_path, class:"back-btn" %>
+  <div class="item-box-center">
+    <% @item.images.each do |image| %>
+      <%= image_tag image.variant(resize: '500x500') %>
+    <% end %>
   </div>
-  <%# /下部ボタン %>
+
+  <div class="item-box-right">
+    <div class="item-buying-box">
+      <div class="item-price-box">
+        ¥<%= @item.price.to_s(:delimited) %>
+      </div>
+      <% if admin_signed_in? %>
+        <%= link_to "商品の編集", edit_admin_item_path(@item.id), method: :get, class: "item-edit-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", "/admin/items/#{@item.id}", method: :delete, class:"item-destroy-btn" %>
+      <% else %>
+        <p class="item-size">サイズを選択する</p>
+        <%=link_to("#") do %>
+          <button class="item-cart" >カートへ追加</button>
+        <%end%>
+      <% end %>   
+      <div class="item-reservation">
+        <% if @item.reservation.id == 4 %>
+          この商品は予約商品です
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 <%= render "shared/footer" %>

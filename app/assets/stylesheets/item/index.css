@@ -1,0 +1,32 @@
+.item-contents{
+  width: 100vw;
+}
+
+.item-lists{
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 55px 20px 15px 20px;
+  justify-content:space-around;
+}
+
+.list{
+  width:400px;
+  height:500px;
+  margin-top:40px;
+  position: relative;
+  border:1px solid black;
+}
+
+.item-info{
+  font-size: 10px;
+  letter-spacing: 2px;
+  color:black;
+  position:absolute;
+  bottom:10px;
+  width:380px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+}

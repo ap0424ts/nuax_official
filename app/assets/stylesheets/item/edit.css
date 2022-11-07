@@ -1,0 +1,38 @@
+.items-sell-contents{
+  padding-top: 70px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color:black;
+}
+
+.items-sell-main{
+  width:500px;
+}
+
+.items-text, .sell-btn{
+  width:500px;
+  border:1px solid black;
+  border-radius : 0;
+}
+
+.sell-btn{
+  background-color:black;
+  color:white;
+}
+
+.back-btn-box{
+  display:flex;
+  justify-content:right;
+}
+.back-btn{
+  color:black;
+}
+
+.back-btn-box, .sell-btn-contents, .weight-bold-text, .price-content{
+margin-top:5px;
+}
