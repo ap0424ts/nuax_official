@@ -1,13 +1,10 @@
 class Public::ItemsController < ApplicationController
   def index
+    @items = Item.all.order("created_at DESC")
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
-  private
-
-  def item_params
-    params.require(:item).permit(:name, :content, :material, :centimeter, :price, :reservation_id, :size_id, :images).merge(user_id: admin_user.id)
-  end
 end

@@ -1,3 +1,27 @@
-<%= render "shared/header" %>
-<h1>アイテム一覧表示ページ</h1>
-<%= render "shared/footer" %>
+<%= render "shared/header"%>
+
+  <%# 商品一覧 %>
+  <div class='item-contents'>
+    <ul class='item-lists'>
+
+      <% @items.each do |item| %>
+      <li class='list'>
+        <%= link_to admin_item_path(item.id) do %>
+        <%= image_tag item.images[0].variant(resize: '398x498') %>
+        <div class='item-info'>
+          <div class='item-name'>
+            <%= item.name %>
+          </div>
+          <div class='item-price'>
+            <span>¥<%= item.price.to_s(:delimited) %><br></span>
+            <div class='star-btn'>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+<%= render "shared/footer"%>
