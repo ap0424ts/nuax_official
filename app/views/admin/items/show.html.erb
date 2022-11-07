@@ -6,9 +6,9 @@
   <div class="item-box-left">
     <div class="item-explain-box">
       <span class="item-explain-contents"><%= @item.name %></span><br>
-      <span class="item-explain-contents"><%= @item.content %></span><br>
-      <span class="item-explain-contents"><%= @item.material %></span><br>
-      <span class="item-explain-contents"><%= @item.centimeter %></span><br>
+      <span class="item-explain-contents"><%= safe_join(@item.content.split("\n"),tag(:br)) %></span><br>
+      <span class="item-explain-contents"><%= safe_join(@item.material.split("\n"),tag(:br)) %></span><br>
+      <span class="item-explain-contents"><%= safe_join(@item.centimeter.split("\n"),tag(:br)) %></span><br>
     </div>
   </div>
 
