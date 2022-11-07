@@ -61,7 +61,7 @@
 | ---------- | ---------- | ------------------------------ |
 | item_id    | references | null: false, foreign_key: true |
 | cart_id    | references | null: false, foreign_key: true |
-| quantity   | integer    | null: false                     |
+| quantity   | integer    | null:false                     |
 
 ### Association
 - belongs_to :item
