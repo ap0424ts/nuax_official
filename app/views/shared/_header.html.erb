@@ -12,13 +12,12 @@
     <ul class='lists-right'>
       <% if user_signed_in? %>
         <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class: "logout" %></li>
-        <li><%= link_to 'CART', "#", class: "cart" %></li>
+        <li><%= link_to 'CART', public_item_my_cart_path(current_cart), class: "cart" %></li>
       <% elsif admin_signed_in? %>
         <li><%= link_to 'LOGOUT(admin)', destroy_admin_session_path, method: :delete, class: "logout" %></li> 
         <li><%= link_to '出品する', '/admin/items/new', class: "cart" %></li>
       <% else %>
         <li><%= link_to 'LOGIN', new_user_session_path, class: "login" %></li>
-        <li><%= link_to 'CART', "#", class: "cart" %></li>
       <% end %>
     </ul>
   </div>

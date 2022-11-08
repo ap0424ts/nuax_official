@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
   has_many_attached :images
+  has_many :cart_items
+  has_many :carts, through: :cart_items
 
   validates :images, presence: true
   validates :name, presence: true, length: { maximum: 40 }

@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 2022_11_07_123053) do
   end
 
   create_table "cart_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "quantity", default: 0
     t.bigint "item_id", null: false
     t.bigint "cart_id", null: false
-    t.integer "quantity", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"
@@ -56,8 +56,12 @@ ActiveRecord::Schema.define(version: 2022_11_07_123053) do
   end
 
   create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "carts_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["carts_id"], name: "index_carts_on_carts_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,4 +95,6 @@ ActiveRecord::Schema.define(version: 2022_11_07_123053) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "items"
+  add_foreign_key "carts", "carts", column: "carts_id"
+  add_foreign_key "carts", "users"
 end

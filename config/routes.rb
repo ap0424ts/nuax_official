@@ -7,7 +7,15 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items
   end
+
   namespace :public do
-    resources :items, only: [:index, :show]
+    resources :carts, only: [:show]
+    resources :items, only: [:index, :show] do
+      get '/my_cart' => 'carts#my_cart'
+      post '/add_item' => 'carts#add_item'
+      post '/update_item' => 'carts#update_item'
+      delete '/delete_item' => 'carts#delete_item'
+    end
   end
+
 end
