@@ -18,6 +18,7 @@
         <li><%= link_to '出品する', '/admin/items/new', class: "cart" %></li>
       <% else %>
         <li><%= link_to 'LOGIN', new_user_session_path, class: "login" %></li>
+        <li><%= link_to 'CART', public_item_my_cart_path(current_cart), class: "cart" %></li>
       <% end %>
     </ul>
   </div>
