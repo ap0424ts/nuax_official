@@ -5,7 +5,7 @@
 
   <div class="item-box-left">
     <div class="item-explain-box">
-      <span class="item-explain-contents"><%= @item.name %></span><br>
+      <span class="item-explain-name"><%= @item.name %></span><br>
       <span class="item-explain-contents"><%= safe_join(@item.content.split("\n"),tag(:br)) %></span><br>
       <span class="item-explain-contents"><%= safe_join(@item.material.split("\n"),tag(:br)) %></span><br>
       <span class="item-explain-contents"><%= safe_join(@item.centimeter.split("\n"),tag(:br)) %></span><br>
@@ -14,7 +14,7 @@
 
   <div class="item-box-center">
     <% @item.images.each do |image| %>
-      <%= image_tag image.variant(resize: '500x500') %>
+      <%= image_tag image.variant(resize: '500x500'), class: "item-box-image" %>
     <% end %>
   </div>
 
