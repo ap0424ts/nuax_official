@@ -55,6 +55,11 @@ header{
   color:black;
   z-index: 1;
 }
+
+.logo-link-img{
+  width:100px;
+  z-index: 1;
+}
 .cart, .sign-up, .login, .logout, .user-name, .collection-list, .shop-list{
   font-size: 12px;
   letter-spacing: 1px;

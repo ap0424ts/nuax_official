@@ -1,0 +1,12 @@
+.cart-contents{
+  margin-top: 15px;
+  padding: 25px 50px;
+  display:flex;
+  justify-content:space-between;
+  border:1px solid black;
+  font-size:10px;
+}
+
+.cart-content-center{
+  margin:0 25px;
+}

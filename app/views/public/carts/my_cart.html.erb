@@ -1,0 +1,19 @@
+<%= render "shared/header"%>
+
+<div class="cart-top">
+  <div class="cart-left">
+    <p>ショッピングカート</p>
+    <%= render partial: "public/carts/cart_item", collection: @cart_items, as: "cart_item"%>
+    <div class="cart-total-price">
+      <p>合計</p>
+      ¥<%= @total.to_s(:delimited) %>
+    </div>
+  </div>
+  <div class="cart-right">
+  <%= link_to "#" do %>
+    <button class="checkout">お支払いへ進む</button>
+  <% end %>
+  </div>
+</div>
+
+<%= render "shared/footer"%>

@@ -1,0 +1,23 @@
+<div class="cart-contents">
+    <%= image_tag cart_item.item.images[0].variant(resize: '140 x 175') %>
+    <div class="cart-content-center">
+        <%= cart_item.item.name %>
+        <p>size:free</p>
+        <% if cart_item.item.reservation.id == 4 %>
+          <p class="reservation-red">この商品は予約商品です
+        <% end %>
+    </div>
+    <div class="cart-content-right">
+        <div class="cart-content-tag">
+            <div><%= cart_item.quantity %>個</div>
+            ¥<%= cart_item.item.price.to_s(:delimited) %>
+            <%= form_with(url: public_item_update_item_path, method: :post,local: true) do |f| %>
+                <%= f.hidden_field :item_id, value: cart_item.item.id %>
+            <% end %>
+        </div>
+        <div class="cart-content-tag">
+            <%= button_to "削除", public_item_delete_item_path(item_id: cart_item.item.id), method: :delete, class:"cart-destroy-btn",
+                                            data: { confirm: "商品を削除しますか？" } %>
+        </div>
+    </div>
+</div>

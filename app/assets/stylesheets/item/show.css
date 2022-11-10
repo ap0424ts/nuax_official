@@ -21,16 +21,27 @@
   flex-direction:column;
 }
 
+.item-explain-name{
+  font-size: 16px;
+  letter-spacing: 1px;
+  color:black;
+}
+
 .item-explain-contents{
   font-size: 12px;
   letter-spacing: 1px;
   color:black;
   margin-top:10px;
 }
+
 .item-box-center{
   padding-top:50px;
   display: flex;
   flex-direction: column;
+}
+
+.item-box-image{
+  margin-bottom: 15px;
 }
 
 .item-box-right{
