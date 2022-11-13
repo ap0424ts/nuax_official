@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="cart-right">
-  <%= link_to "#" do %>
+  <%= link_to public_item_orders_path(current_cart.id) do %>
     <button class="checkout">お支払いへ進む</button>
   <% end %>
   </div>
