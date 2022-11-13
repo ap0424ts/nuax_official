@@ -14,7 +14,8 @@ class Public::OrdersController < ApplicationController
         cart_item = CartItem.where(item_id: item.id, cart_id: current_cart.id).first
         order_detail = OrderDetail.new
         order_detail.item_id = item.id
-        order_detail.order_id = #order.idを結びつけたい
+        @order = Order.find_by(cart_id: current_cart.id)
+        order_detail.order_id = @order.id
         order_detail.quantity = cart_item.quantity
         order_detail.save!
         #もしログインしているユーザーの場合は、Orderにuser_idを結びつける
@@ -35,7 +36,7 @@ class Public::OrdersController < ApplicationController
 
 
   def order_params
-    params.require(:order_shipping).permit(:post_code, :state, :city, :addres, :building ,:phone_number).merge(token: params[:token])
+    params.require(:order_shipping).permit(:post_code, :state, :city, :addres, :building ,:phone_number).merge(cart_id: current_cart.id, token: params[:token])
   end
 
 end

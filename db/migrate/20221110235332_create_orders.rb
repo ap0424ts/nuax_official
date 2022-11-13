@@ -4,6 +4,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.references :user, foreign_key: true 
       t.integer :order_detail_id
       t.integer :shipping_id
+      t.references :cart, foreign_key: true
       t.timestamps
     end
   end

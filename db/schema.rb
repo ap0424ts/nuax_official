@@ -90,8 +90,10 @@ ActiveRecord::Schema.define(version: 2022_11_10_235339) do
     t.bigint "user_id"
     t.integer "order_detail_id"
     t.integer "shipping_id"
+    t.bigint "cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -131,6 +133,7 @@ ActiveRecord::Schema.define(version: 2022_11_10_235339) do
   add_foreign_key "carts", "users"
   add_foreign_key "order_details", "items"
   add_foreign_key "order_details", "orders"
+  add_foreign_key "orders", "carts"
   add_foreign_key "orders", "users"
   add_foreign_key "shippings", "orders"
 end
