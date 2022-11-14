@@ -28,16 +28,13 @@
   </div>
 
   <div class='form-footer'>
-    <h1 class='form-footer-text'>
-      or
-    </h1>
-    <%=link_to(new_user_registration_path) do %>
-      <button class="sign-up" >新規登録</button>
-    <%end%>
+    <%= link_to '新規登録はこちら', new_user_registration_path, class: "sign-up" %>
   </div>
   
 </div>
 
 <% end %>
+
+
 
 <%= render "shared/footer" %>

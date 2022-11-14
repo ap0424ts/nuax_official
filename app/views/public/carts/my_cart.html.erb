@@ -1,17 +1,29 @@
 <%= render "shared/header"%>
-
+<%= notice %>
 <div class="cart-top">
   <div class="cart-left">
     <p>ショッピングカート</p>
+    <%= notice %>
+    <%= alert %>
     <%= render partial: "public/carts/cart_item", collection: @cart_items, as: "cart_item"%>
     <div class="cart-total-price">
+    <% if @total == 0 %>
+      <p>カートの中身はありません。</p>
+    <% elsif %>
       <p>合計</p>
       ¥<%= @total.to_s(:delimited) %>
+    <% end %>
     </div>
   </div>
   <div class="cart-right">
-  <%= link_to public_item_orders_path(current_cart.id) do %>
-    <button class="checkout">お支払いへ進む</button>
+  <% if @total == 0 %>
+    <%= link_to root_path do %>
+      <button class="checkout">トップページへ戻る</button>
+    <% end %>
+  <% elsif %>
+    <%= link_to public_item_orders_path(current_cart.id) do %>
+      <button class="checkout">お支払いへ進む</button>
+    <% end %>
   <% end %>
   </div>
 </div>

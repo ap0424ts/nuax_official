@@ -34,9 +34,9 @@ class Public::CartsController < ApplicationController
   # アイテムの削除
   def delete_item
     if @cart_item.destroy
-      flash[:notice] = 'カート内のギフトが削除されました'
+      flash[:notice] = '商品が削除されました。'
     else
-      flash[:alert] = '削除に失敗しました'
+      flash[:alert] = '削除に失敗しました。'
     end
     redirect_to public_item_my_cart_path
   end
