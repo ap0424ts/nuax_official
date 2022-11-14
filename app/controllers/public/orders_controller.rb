@@ -5,12 +5,17 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    @order_shipping = OrderShipping.new(order_params)
+    if current_user
+      @order_shipping = OrderShipping.new(order_user_params)
+    else
+      @order_shipping = OrderShipping.new(order_params)
+    end
+
     if @order_shipping.valid?
       @order_shipping.save
       items = current_cart.items
       items.each do |item|
-        @order = Order.find_by(cart_id: current_cart.id)
+        @order = Order.where(cart_id: current_cart.id).last
         cart_item = CartItem.where(item_id: item.id, cart_id: current_cart.id).first
         order_detail = OrderDetail.new
         order_detail.item_id = item.id
@@ -18,8 +23,8 @@ class Public::OrdersController < ApplicationController
         order_detail.quantity = cart_item.quantity
         order_detail.save!
       end
-      if current_user #ログインしているユーザーは
-        @order = Order.find_by(cart_id: current_cart.id)
+      if current_user #ログインしている場合は、Orderにuser_idを結びつける
+        @order = Order.where(cart_id: current_cart.id).last
         @order.user_id = current_user.id
         redirect_to root_path
         items.destroy_all
@@ -27,6 +32,7 @@ class Public::OrdersController < ApplicationController
         redirect_to root_path
         items.destroy_all
       end
+    
     else
       render :index
     end
@@ -38,9 +44,11 @@ class Public::OrdersController < ApplicationController
 
   private
 
+  def order_user_params
+    params.require(:order_shipping).permit(:post_code, :state, :city, :addres, :building ,:phone_number).merge(user_id:current_user.id, cart_id: current_cart.id, token: params[:token])
+  end
 
   def order_params
     params.require(:order_shipping).permit(:post_code, :state, :city, :addres, :building ,:phone_number).merge(cart_id: current_cart.id, token: params[:token])
   end
-
 end
