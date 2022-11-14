@@ -1,69 +1,79 @@
 .transaction-contents{
-  margin-top: 100px;
+  padding : 100px 70px 0 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.order-item-contents{
-  margin-top:5px;
-  border-top: 1px solid black;
-  display:flex;
-}
-
-.order-item-content{
-  margin:15px;
-  padding: 0 25px;
-  display:flex;
-  justify-content:space-between;
-}
-
-.order-reservation-red{
-  color:red
-}
-
-
 .transaction-title-text{
-  font-size: 14px;
+  margin-bottom: 25px;
+  width:350px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  font-size: 12px;
   letter-spacing: 1px;
   color:black;
-  text-align: center;
 }
 
-.item-payment{
-  font-size: 14px;
+.transaction-main{
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+}
+
+.credit-card-form{
+  margin-top:15px;
+  margin-bottom:15px;
+}
+
+.form-group-under{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.input-expiration-date, .input-default-cvc{
+  width:70px;
+  border:1px solid black;
+  border-radius : 0;
+  font-size: 12px;
   letter-spacing: 1px;
   color:black;
 }
 
 .input-expiration-date{
-  width:70px;
-  border:1px solid black;
-  border-radius : 0;
+  margin-top: 4px;
 }
 
-.input-default-cvc{
-  width:70px;
-  border:1px solid black;
-  border-radius : 0;
-}
-
-.form-group-under{
-  width:300px;
-  display:flex;
-  justify-content:space-between;
-}
-
-.info-input-haedline{
-  font-size: 14px;
+.item-payment-title{
+  margin-top:5px;
+  font-size: 12px;
   letter-spacing: 1px;
   color:black;
+  text-align: right;
+  border-bottom:1px solid black;
 }
 
-.credit-card-form{
-  padding: 15px 0;
-  width:450px;
-  background-color:lightgray;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+.info-input-haedline, .info-input-haedline{
+  font-size: 12px;
+  letter-spacing: 1px;
+  color:black;
+  border-bottom:1px solid black;
+}
+
+.buy-red-btn{
+  margin-top:15px;
+  height:30px;
+  width: 300px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  border:1px solid black;
+  border-radius : 0;
+  color: white;
+  background-color: black;
+}
+
+input::placeholder{
+  font-size: 12px;
+  letter-spacing: 1px;
 }
