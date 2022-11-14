@@ -1,0 +1,69 @@
+.transaction-contents{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-item-contents{
+  margin-top:5px;
+  border-top: 1px solid black;
+  display:flex;
+}
+
+.order-item-content{
+  margin:15px;
+  padding: 0 25px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.order-reservation-red{
+  color:red
+}
+
+
+.transaction-title-text{
+  font-size: 14px;
+  letter-spacing: 1px;
+  color:black;
+  text-align: center;
+}
+
+.item-payment{
+  font-size: 14px;
+  letter-spacing: 1px;
+  color:black;
+}
+
+.input-expiration-date{
+  width:70px;
+  border:1px solid black;
+  border-radius : 0;
+}
+
+.input-default-cvc{
+  width:70px;
+  border:1px solid black;
+  border-radius : 0;
+}
+
+.form-group-under{
+  width:300px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.info-input-haedline{
+  font-size: 14px;
+  letter-spacing: 1px;
+  color:black;
+}
+
+.credit-card-form{
+  padding: 15px 0;
+  width:450px;
+  background-color:lightgray;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
