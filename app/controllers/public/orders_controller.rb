@@ -1,6 +1,8 @@
 class Public::OrdersController < ApplicationController
 
   def index
+    @cart_items = current_cart.cart_items.includes([:item])
+    @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
     @order_shipping = OrderShipping.new
   end
 
@@ -45,10 +47,9 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_user_params
-    params.require(:order_shipping).permit(:post_code, :state, :city, :addres, :building ,:phone_number).merge(user_id:current_user.id, cart_id: current_cart.id, token: params[:token])
+    params.require(:order_shipping).permit(:last_name, :first_name, :post_code, :state, :city, :addres, :building ,:phone_number).merge(user_id:current_user.id, cart_id: current_cart.id, token: params[:token])
   end
-
   def order_params
-    params.require(:order_shipping).permit(:post_code, :state, :city, :addres, :building ,:phone_number).merge(cart_id: current_cart.id, token: params[:token])
+    params.require(:order_shipping).permit(:last_name, :first_name, :post_code, :state, :city, :addres, :building ,:phone_number).merge(cart_id: current_cart.id, token: params[:token])
   end
 end

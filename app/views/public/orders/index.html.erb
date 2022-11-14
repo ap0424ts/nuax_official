@@ -13,6 +13,7 @@
     <div class='item-payment'>
       <h1 class='item-payment-title'>
         支払金額
+        ¥<%= @total.to_s(:delimited) %>
       </h1>
     <%# /支払額の表示 %>
 
@@ -57,6 +58,15 @@
       <h1 class='info-input-haedline'>
         配送先入力
       </h1>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">お名前(全角)</label>
+        </div>
+        <div class='input-name-wrap'>
+          <%= f.text_area :last_name, class:"input-name", id:"last-name", placeholder:"" %>
+          <%= f.text_area :first_name, class:"input-name", id:"first-name", placeholder:"" %>
+        </div>
+      </div>
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">郵便番号</label>

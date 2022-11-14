@@ -54,6 +54,9 @@
 
 ### Association
 - has_many :cart_items, dependent: :destroy
+- has_many :items, through: :cart_items
+- belongs_to :order, optional: true
+
 
 ## cart_itemsテーブル
 
@@ -85,10 +88,12 @@
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | user_id      | references | null: false, foreign_key: true |
+| cart_id      | references | null: false, foreign_key: true |
 | shippings_id | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
+- belongs_to :cart, optional: true
 - has_one    :shipping
 - has_many   :order_details, dependent: :destroy
 - has_many   :items, through: :order_details
@@ -97,6 +102,8 @@
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
+| last_name       | string     | null: false                    |
+| first_name      | string     | null: false                    |
 | post_code       | string     | null: false                    |
 | state           | string     | null: false                    |
 | city            | string     | null: false                    |
@@ -106,4 +113,4 @@
 | order_id        | references | null: false, foreign_key: true |
 
 ### Association
-- has_one :order
+- belongs_tp :order
