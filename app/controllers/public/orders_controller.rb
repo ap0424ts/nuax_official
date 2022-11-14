@@ -14,6 +14,9 @@ class Public::OrdersController < ApplicationController
     end
 
     if @order_shipping.valid?
+      @cart_items = current_cart.cart_items.includes([:item])
+      @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+      pay_item
       @order_shipping.save
       items = current_cart.items
       items.each do |item|
@@ -51,5 +54,14 @@ class Public::OrdersController < ApplicationController
   end
   def order_params
     params.require(:order_shipping).permit(:last_name, :first_name, :post_code, :state, :city, :addres, :building ,:phone_number).merge(cart_id: current_cart.id, token: params[:token])
+  end
+
+  def pay_item
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create(
+      amount: @total,  # 商品の値段
+      card: order_params[:token],
+      currency: 'jpy'
+    )
   end
 end
