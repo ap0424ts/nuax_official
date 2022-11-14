@@ -38,8 +38,8 @@
 | size_id        | integer    | null: false                     |
 
 ### Association
-- has_many   :item_orders
-- has_many   :orders, through: :item_orders
+- has_many   :order_details
+- has_many   :orders, through: :order_details
 - has_many   :cart_items, dependent: :destroy
 - belongs_to :size
 - belongs_to :reservation
@@ -54,6 +54,9 @@
 
 ### Association
 - has_many :cart_items, dependent: :destroy
+- has_many :items, through: :cart_items
+- belongs_to :order, optional: true
+
 
 ## cart_itemsテーブル
 
@@ -67,7 +70,7 @@
 - belongs_to :item
 - belongs_to :cart
 
-## item_ordersテーブル
+## order_detailsテーブル
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
@@ -85,28 +88,29 @@
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | user_id      | references | null: false, foreign_key: true |
+| cart_id      | references | null: false, foreign_key: true |
 | shippings_id | references | null: false, foreign_key: true |
-| quantity     | integer    | null: false                    |
 
 ### Association
-- belongs_to :user
-- belongs_to :shipping
-- has_many   :item_orders, dependent: :destroy
-- has_many   :items, through: :item_orders
+- belongs_to :user, optional: true
+- belongs_to :cart, optional: true
+- has_one    :shipping
+- has_many   :order_details, dependent: :destroy
+- has_many   :items, through: :order_details
 
 ## shippingsテーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
+| last_name       | string     | null: false                    |
+| first_name      | string     | null: false                    |
 | post_code       | string     | null: false                    |
 | state           | string     | null: false                    |
 | city            | string     | null: false                    |
 | addres          | string     | null: false                    |
 | building        | string     |                                |
 | phone_number    | string     | null: false                    |
-| user_id         | references | null: false, foreign_key: true |
 | order_id        | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
-- has_one :order
+- belongs_tp :order
