@@ -1,116 +1,50 @@
-# テーブル設計
+# アプリケーション名  
+NUAX  
+# アプリケーション概要  
+商品の購入ができるECサイト
+# URL  
 
-## usersテーブル
-
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| last_name           | string     | null: false                    |
-| first_name          | string     | null: false                    |
-| last_name_kana      | string     | null: false                    |
-| first_name_kana     | string     | null: false                    |
-| email               | string     | null: false, unique: true      |
-| encrypted_password  | string     | null: false                    |
-
-### Association
-- has_one    :shipping, dependent: :destroy
-- has_many   :orders
-
-## adminsテーブル
-
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| admin               | boolen     | default: false                 || 
-
-### Association
-- has_many   :orders
-- has_many   :items
-
-## itemsテーブル
-
-| Column         | Type       | Options                         |
-| -------------- | ---------- | ------------------------------- |
-| name           | string     | null: false                     |
-| content        | text       |                                 |
-| material       | string     | null: false                     |
-| centimeter     | text       | null: false                     |
-| price          | integer    | null: false                     |
-| reservation_id | integer    | null: false                     |
-| size_id        | integer    | null: false                     |
-
-### Association
-- has_many   :order_details
-- has_many   :orders, through: :order_details
-- has_many   :cart_items, dependent: :destroy
-- belongs_to :size
-- belongs_to :reservation
-- belongs_to :admin
-- has_many_atached : images
+# テスト用アカウント  
+# 利用方法  
+## 商品の購入  
+1. トップページ(一覧ページ)から商品の詳細ページへ遷移する。
+2. 「カートに入れる」ボタンを押下することで、カートに商品を追加する。
+3. カートより、「お支払いへ進む」ボタンを押下すると購入ページへ遷移する。
+4. お支払い情報と配送先の情報を入力することで商品が購入できる  
 
 
-## cartsテーブル
+# アプリケーションを作成した背景  
+自身でレディースファッションブランドを行っていた。ホームページは持っていたが、商品の販売機能が実装されていなかった。その為、今回ECサイトのアプリケーションを開発することにした。  
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
+# 洗い出した要件  
 
-### Association
-- has_many :cart_items, dependent: :destroy
-- has_many :items, through: :cart_items
-- belongs_to :order, optional: true
+# 実装した機能についての画像やGIFおよびその説明  
 
+# 実装予定の機能  
+現在、javascriptのthree.jsを用いたトップページの実装中。
+また、問い合わせ機能の実装を予定。
 
-## cart_itemsテーブル
+# データベース設計  
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| item_id    | references | null: false, foreign_key: true |
-| cart_id    | references | null: false, foreign_key: true |
-| quantity   | integer    | null:false                     |
+# 画面遷移図  
+# 開発環境  
+* フロントエンド
 
-### Association
-- belongs_to :item
-- belongs_to :cart
+* バックエンド
 
-## order_detailsテーブル
+* インフラ
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| item_id  | references | null: false, foreign_key: true |
-| order_id | references | null: false, foreign_key: true |
-| quantity | integer    | null: false                    |
+* テスト
 
-### Association
-- belongs_to :item
-- belongs_to :order
+* テキストエディタ
 
+* タスク管理
 
-## ordersテーブル
+# ローカルでの動作方法  
+以下のコマンドを順に実行  
+% git clone https://github.com/ap0424ts/nuax_official.git  
+% cd nuax_official  
+% bundle install  
+% yarn install  
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| user_id      | references | null: false, foreign_key: true |
-| cart_id      | references | null: false, foreign_key: true |
-| shippings_id | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user, optional: true
-- belongs_to :cart, optional: true
-- has_one    :shipping
-- has_many   :order_details, dependent: :destroy
-- has_many   :items, through: :order_details
-
-## shippingsテーブル
-
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| last_name       | string     | null: false                    |
-| first_name      | string     | null: false                    |
-| post_code       | string     | null: false                    |
-| state           | string     | null: false                    |
-| city            | string     | null: false                    |
-| addres          | string     | null: false                    |
-| building        | string     |                                |
-| phone_number    | string     | null: false                    |
-| order_id        | references | null: false, foreign_key: true |
-
-### Association
-- belongs_tp :order
+# ローカルでの動作方法  
