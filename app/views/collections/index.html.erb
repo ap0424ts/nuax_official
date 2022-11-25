@@ -1,15 +1,21 @@
 <%= render "shared/header"%>
-  <br><br><br><br><% if admin_signed_in? %>
-    <li><%= link_to '新しいシーズンの画像を追加する', new_collection_path, class: "collection" %></li>
+
+  <div class="collection-contents">
+  <% @collections.each do |collection| %>
+    <div class="collection-contents-box">
+    <%= link_to collection_path(collection.id) do %>
+      <% collection.images.each do |image| %>
+        <%= image_tag image.variant(resize: '200x200'), class: "collection-index-image" %>
+      <% end %>
+    <% end %>
+    </div>
+  <% end %>
+  </div>
+
+  <% if admin_signed_in? %>
+    <%= link_to '新しいシーズンの画像を追加する', new_collection_path, class: "collection-destroy-btn" %>
   <% end %>
 
-  <% @collections.each do |collection| %>
-    <%= link_to collection_path(collection.id) do %>
-      <li class='look-index'>
-        <%= image_tag collection.images[0].variant(resize: '398x498') %>
-      </li>
-    <% end %>
-  <% end %>
 
 <%= render "shared/footer"%>
 

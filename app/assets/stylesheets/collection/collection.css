@@ -15,9 +15,9 @@
   color:white;
   display: flex;
   position: fixed;
-  border-top:1px solid black;
+  border:1px solid black;
   z-index:2;
-  top : 50px;
+  bottom : 35px;
   left: 0px;
   background-color:black;
   opacity:0.9;
@@ -26,5 +26,27 @@
 
 .collection-box-center{
   display:flex;
+}
 
+
+.collection-contents{
+  padding-top:55px;
+  width:100vw;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.collection-contents-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.season-name{
+  padding-top:30px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display:flex;
+  justify-content:center;
 }

@@ -4,7 +4,9 @@
 <div class="collection-show">
 
   <% if admin_signed_in? %>
-    <%= link_to "シーズンの全ての画像を削除", "/collections/#{@collection.id}", method: :delete, class:"collection-destroy-btn" %>
+    <%= button_to "シーズンの全ての画像を削除", "/collections/#{@collection.id}", method: :delete, class:"collection-destroy-btn",
+                                            data: { confirm: "このシーズンを削除しますか？" } %>
+
   <% end %>  
 
   <div class="collection-box-center">
