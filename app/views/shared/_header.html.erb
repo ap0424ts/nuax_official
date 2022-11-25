@@ -8,7 +8,7 @@
   <div class='nav'>
     <ul class='lists-left'>
       <li><%= link_to 'SHOP', root_path, class: "shop-list" %></li>
-      <li><%= link_to 'COLLECTION', "#", class: "collection-list" %></li>
+      <li><%= link_to 'COLLECTION', collections_path, class: "collection-list" %></li>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>

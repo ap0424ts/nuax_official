@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+
+<%# 商品の概要 %>
+<div class="collection-show">
+
+  <% if admin_signed_in? %>
+    <%= button_to "シーズンの全ての画像を削除", "/collections/#{@collection.id}", method: :delete, class:"collection-destroy-btn",
+                                            data: { confirm: "このシーズンを削除しますか？" } %>
+
+  <% end %>  
+
+  <div class="collection-box-center">
+    <% @collection.images.each do |image| %>
+      <%= image_tag image.variant(resize: '700x700'), class: "collection-box-image" %>
+    <% end %>
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>
