@@ -1,4 +1,5 @@
 class CollectionsController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :create]
 
   def index
     @collections = Collection.all.order("created_at DESC")
