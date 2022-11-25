@@ -1,0 +1,35 @@
+<%= render "shared/header"%>
+<div class="items-sell-contents">
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">新しいシーズンの情報を入力</h2>
+    <%= form_with model: @collection, local: true do |f| %>
+    <%# render 'shared/error_messages', model: f.object %>
+
+    <%# コレクション画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        ルックを追加
+      </div>
+      <div class="click-upload">
+        <%= f.file_field :images, multiple: true, id:"collection-image"  %>
+      </div>
+    </div>
+    <%# /コレクション画像 %>
+
+    <%# 商品名と商品説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        シーズン名
+      </div>
+      <%= f.text_area :season, class:"items-text", id:"item-name", placeholder:"例:2022ss", maxlength:"40" %>
+    </div>
+
+    
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "新しいシーズンを追加" ,class:"sell-btn" %>
+      <%=link_to 'もどる', collections_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  <% end %>
+</div>

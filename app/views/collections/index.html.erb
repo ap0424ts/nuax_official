@@ -1,0 +1,12 @@
+<%= render "shared/header"%>
+  <br><br><br><br><% if admin_signed_in? %>
+    <li><%= link_to '新しいシーズンの画像を追加する', new_collection_path, class: "collection" %></li>
+  <% end %>
+
+      <% @collections.each do |collection| %>
+      <li class='list'>
+        <%= image_tag collection.images[0].variant(resize: '398x498') %>
+      </li>
+      <% end %>
+<%= render "shared/footer"%>
+
