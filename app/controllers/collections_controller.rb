@@ -1,5 +1,5 @@
 class CollectionsController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create]
+  before_action :authenticate_admin!, only: [:new, :create, :destroy]
 
   def index
     @collections = Collection.all.order("created_at DESC")
@@ -18,9 +18,14 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def destroy
+    @collection.destroy
+    redirect_to collections_path
+  end
+
 
   private
   def collection_params
-    params.require(:collection).permit(:season, images:[])
+    params.require(:collection).permit(:season_id, images:[])
   end
 end

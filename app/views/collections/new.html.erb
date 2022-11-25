@@ -21,7 +21,7 @@
       <div class="weight-bold-text">
         シーズン名
       </div>
-      <%= f.text_area :season, class:"items-text", id:"item-name", placeholder:"例:2022ss", maxlength:"40" %>
+      <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
     </div>
 
     

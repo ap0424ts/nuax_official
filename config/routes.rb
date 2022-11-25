@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :collections, only: [:index, :new, :create, :edit ,:destroy]
+  resources :collections, only: [:index, :new, :create, :destroy]
 
 end
