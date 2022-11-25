@@ -1,0 +1,30 @@
+.collection-show{
+  width:100vw;
+  padding-top:55px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.collection-destroy-btn{
+  font-size: 14px;
+  letter-spacing: 1px;
+  background-color:black;
+  width:100%;
+  color:white;
+  display: flex;
+  position: fixed;
+  border-top:1px solid black;
+  z-index:2;
+  top : 50px;
+  left: 0px;
+  background-color:black;
+  opacity:0.9;
+  padding-left : 55px;
+}
+
+.collection-box-center{
+  display:flex;
+
+}

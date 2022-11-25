@@ -3,10 +3,13 @@
     <li><%= link_to '新しいシーズンの画像を追加する', new_collection_path, class: "collection" %></li>
   <% end %>
 
-      <% @collections.each do |collection| %>
+  <% @collections.each do |collection| %>
+    <%= link_to collection_path(collection.id) do %>
       <li class='look-index'>
         <%= image_tag collection.images[0].variant(resize: '398x498') %>
       </li>
-      <% end %>
+    <% end %>
+  <% end %>
+
 <%= render "shared/footer"%>
 

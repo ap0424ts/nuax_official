@@ -1,9 +1,17 @@
 footer{
-  margin-top:25px;
-  height:45px;
+  height:35px;
   width: 100vw;
-  padding-top:10px;
+  padding-bottom:10px;
+  display: flex;
+  position: relative;
+  align-items: flex-end;
   border-top:1px solid black;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index:2;
+  background-color:white;
+  opacity:0.9;
 }
 
 .lists-footer{
