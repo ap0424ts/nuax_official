@@ -16,7 +16,6 @@ header{
   top: 0;
   left: 0;
   z-index:2;
-  background-color:white;
   opacity:0.9;
 }
 
@@ -26,32 +25,31 @@ header{
   font-weight: 1000;
   width: 100vw;
   display: flex;
-  justify-content: center;
-  position: absolute;
 }
 
 
 .nav{
-  width: 100vw;
+  width: 500px;
   padding: 0 40px;
   display:flex;
-  position:absolute;
-  justify-content:space-between;
 }
 
 .lists-left{
-  width:40vw;
+  width:15vw;
   display:flex;
   justify-content:space-around;
 }
 
 .lists-right{
-  width:40vw;
+  width:20vw;
   display:flex;
   justify-content:space-around;
+  align-items: flex-end;
+
 }
 
 .logo-link{
+  padding: 0 50px 0 75px;
   color:black;
   z-index: 1;
 }
@@ -64,4 +62,8 @@ header{
   font-size: 12px;
   letter-spacing: 1px;
   color:black;
+}
+
+.cart img{
+  width: 40%;
 }
