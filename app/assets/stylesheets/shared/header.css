@@ -41,7 +41,7 @@ header{
 }
 
 .lists-right{
-  width:25vw;
+  width:20vw;
   display:flex;
   justify-content:space-around;
   align-items: flex-end;
