@@ -1,5 +1,9 @@
 class Public::OrdersController < ApplicationController
 
+  def all_order
+    
+  end
+
   def index
     @cart_items = current_cart.cart_items.includes([:item])
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
@@ -32,6 +36,7 @@ class Public::OrdersController < ApplicationController
         order_detail.quantity = cart_item.quantity
         order_detail.save!
       end
+
       if current_user #ログインしている場合は、Orderにuser_idを結びつける
         @order = Order.where(cart_id: current_cart.id).last
         @order.user_id = current_user.id
