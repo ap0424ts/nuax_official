@@ -6,7 +6,7 @@
     ご注文内容
   </p>
   <p class='transaction-title-text-bottom'>
-    注文日時:<%= @order.created_at %>
+    注文日時:<%= @order.created_at.to_s(:datetime_jp) %>
   </p>
 
   <div class='transaction-main'>

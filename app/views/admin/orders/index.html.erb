@@ -21,7 +21,7 @@
       <%= link_to admin_order_path(order.id) do %>
       <li class='order-list'>
           <div class='order-list-detail'><%= order.id %></div>
-          <div class='order-list-detail'><%= order.created_at %></div>
+          <div class='order-list-detail'><%= order.created_at.to_s(:datetime_jp) %></div>
           <div class='order-list-detail'>¥<%= order.order_details.includes([:item]).inject(0) { |sum, item| sum + item.sum_of_price }.to_s(:delimited) %></div>
       </li>
       <% end %>
