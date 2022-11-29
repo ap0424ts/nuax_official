@@ -1,23 +1,32 @@
 <%= render "shared/header"%>
 
   <%# 注文履歴一覧 %>
-  <div class='item-contents'>
-    <ul class='item-lists'>
+  <div class='admin-order-index'>
+    <div ckass='admin-order-left'>
+      <p>注文番号</p>
+    </div>
+    <div ckass='admin-order-center'>
+      <p>注文日時</p>
+    </div>
+    <div ckass='admin-order-right'>
+      <p>お支払い金額</p>
+    </div>
+  </div>
 
+
+
+  <div class='admin-order-index-bottom'>
+    <ul class='order-lists'>
       <% @orders.each do |order| %>
       <%= link_to admin_order_path(order.id) do %>
-      <li class='list'>
-          <div class='item-name'>
-            <%= order.id %>
-          </div>
-          <div class='item-name'>
-            <%= order.created_at %>
-          </div>
-          <div class='item-name'>
-          </div>
+      <li class='order-list'>
+          <div class='order-list-detail'><%= order.id %></div>
+          <div class='order-list-detail'><%= order.created_at %></div>
+          <div class='order-list-detail'>¥<%= order.order_details.includes([:item]).inject(0) { |sum, item| sum + item.sum_of_price }.to_s(:delimited) %></div>
       </li>
       <% end %>
       <% end %>
+
     </ul>
   </div>
 

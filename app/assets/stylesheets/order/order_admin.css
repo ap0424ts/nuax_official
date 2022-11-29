@@ -12,3 +12,31 @@
   letter-spacing: 1px;
   padding-left:120px;
 }
+
+.admin-order-index{
+  padding:100px 400px 50px 400px;
+  width:100vw;
+  display:flex;
+  justify-content:space-between;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.admin-order-index-bottom{
+  padding:0 400px;
+  width:100vw;
+}
+
+.order-list{
+  display:flex;
+  justify-content:space-between;
+  padding: 0 15px;
+  border-bottom: 1px solid black;
+  margin-bottom:15px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.order-lists a{
+  color:black
+}
