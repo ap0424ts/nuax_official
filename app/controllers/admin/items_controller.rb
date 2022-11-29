@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @items = Item.all.order("created_at DESC")
