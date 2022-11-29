@@ -1,5 +1,6 @@
 class Admin::OrdersController < ApplicationController
-
+  before_action :authenticate_admin!, only: [:index, :show]
+  
   def index
     @orders = Order.all.order("created_at DESC")
   end

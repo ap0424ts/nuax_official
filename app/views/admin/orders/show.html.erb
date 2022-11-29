@@ -5,8 +5,8 @@
   <p class='transaction-title-text'>
     ご注文内容
   </p>
-  <p class='transaction-title-text'>
-    注文日時<br><%= @order.created_at %>
+  <p class='transaction-title-text-bottom'>
+    注文日時:<%= @order.created_at %>
   </p>
 
   <div class='transaction-main'>
@@ -21,8 +21,8 @@
     <%# /購入内容の表示 %>
 
     <%# 配送先の表示 %>
-    <div class='order-index-right'>
-      <div class='shipping-address-form'>
+    <div class='order-index-right-admin'>
+      <div class='shipping-address-form-admin'>
         <h1 class='info-input-haedline'>
           配送先情報
         </h1>
@@ -31,45 +31,44 @@
             <label class="form-text">お名前</label>
           </div>
           <div class='input-name-wrap'>
-            <%= @shipping.last_name %>
-            <%= @shipping.first_name %>
+            <div class='admin_order_font'><%= @shipping.last_name %> <%= @shipping.first_name %></div>
           </div>
         </div>
         <div class="form-group">
           <div class='form-text-wrap'>
             <label class="form-text">郵便番号</label>
           </div>
-          <%= @shipping.post_code %>
+          <div class='admin_order_font'><%= @shipping.post_code %></div>
         </div>
         <div class="form-group">
           <div class='form-text-wrap'>
             <label class="form-text">都道府県</label>
           </div>
-          <%= @shipping.state %>
+          <div class='admin_order_font'><%= @shipping.state %></div>
         </div>
         <div class="form-group">
           <div class='form-text-wrap'>
             <label class="form-text">市区町村</label>
           </div>
-          <%= @shipping.city %>
+          <div class='admin_order_font'><%= @shipping.city %></div>
         </div>
         <div class="form-group">
           <div class='form-text-wrap'>
             <label class="form-text">番地</label>
           </div>
-          <%= @shipping.addres %>
+          <div class='admin_order_font'><%= @shipping.addres %></div>
         </div>
         <div class="form-group">
           <div class='form-text-wrap'>
             <label class="form-text">建物名</label>
           </div>
-          <%= @shipping.building %>
+          <div class='admin_order_font'><%= @shipping.building %></div>
         </div>
         <div class="form-group">
           <div class='form-text-wrap'>
             <label class="form-text">電話番号</label>
           </div>
-          <%= @shipping.phone_number %>
+          <div class='admin_order_font'><%= @shipping.phone_number %></div>
         </div>
       </div>
     </div> 

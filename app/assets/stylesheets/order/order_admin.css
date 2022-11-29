@@ -1,0 +1,14 @@
+.transaction-title-text-bottom{
+  margin-bottom: 25px;
+  width:350px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color:black;
+}
+
+.admin_order_font{
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding-left:120px;
+}
