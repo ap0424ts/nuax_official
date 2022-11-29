@@ -1,0 +1,26 @@
+<%= render "shared/header"%>
+
+  <%# 注文履歴一覧 %>
+  <div class='item-contents'>
+    <ul class='item-lists'>
+
+      <% @orders.each do |order| %>
+      <%= link_to admin_order_path(order.id) do %>
+      <li class='list'>
+          <div class='item-name'>
+            <%= order.id %>
+          </div>
+          <div class='item-name'>
+            <%= order.created_at %>
+          </div>
+          <div class='item-name'>
+          </div>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+<%= render "shared/footer"%>
+
+

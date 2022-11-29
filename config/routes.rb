@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :items
-    get '/admin/all_order' => 'orders#all_order'
+    resources :orders, only: [:index, :show]
   end
 
   namespace :public do

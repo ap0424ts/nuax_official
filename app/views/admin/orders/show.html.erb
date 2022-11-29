@@ -1,0 +1,81 @@
+<%= render "shared/header"%>
+
+<div class='transaction-contents'>
+
+  <p class='transaction-title-text'>
+    ご注文内容
+  </p>
+  <p class='transaction-title-text'>
+    注文日時<br><%= @order.created_at %>
+  </p>
+
+  <div class='transaction-main'>
+    <%# 購入内容の表示 %>
+    <div class = "order-item-contents">
+    <%= render partial: "admin/orders/order_item", collection: @order_details, as: "order_detail"%>
+      <h1 class='item-payment-title'>
+        計
+        ¥<%= @total.to_s(:delimited) %>
+      </h1>
+    </div>
+    <%# /購入内容の表示 %>
+
+    <%# 配送先の表示 %>
+    <div class='order-index-right'>
+      <div class='shipping-address-form'>
+        <h1 class='info-input-haedline'>
+          配送先情報
+        </h1>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">お名前</label>
+          </div>
+          <div class='input-name-wrap'>
+            <%= @shipping.last_name %>
+            <%= @shipping.first_name %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">郵便番号</label>
+          </div>
+          <%= @shipping.post_code %>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">都道府県</label>
+          </div>
+          <%= @shipping.state %>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">市区町村</label>
+          </div>
+          <%= @shipping.city %>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">番地</label>
+          </div>
+          <%= @shipping.addres %>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">建物名</label>
+          </div>
+          <%= @shipping.building %>
+        </div>
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">電話番号</label>
+          </div>
+          <%= @shipping.phone_number %>
+        </div>
+      </div>
+    </div> 
+    <%# /配送先の表示 %>
+    
+  </div>
+</div>
+
+<%= render "shared/footer"%>

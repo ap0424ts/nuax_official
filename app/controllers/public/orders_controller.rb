@@ -1,9 +1,5 @@
 class Public::OrdersController < ApplicationController
 
-  def all_order
-    
-  end
-
   def index
     @cart_items = current_cart.cart_items.includes([:item])
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }

@@ -1,0 +1,16 @@
+<div class="order-contents">
+    <%= image_tag order_detail.item.images[0].variant(resize: '84 x 105') %>
+    <div class="cart-content-center">
+        <%= order_detail.item.name %>
+        <p>size:free</p>
+        <% if order_detail.item.reservation.id == 4 %>
+          <p class="reservation-red">この商品は予約商品です
+        <% end %>
+    </div>
+    <div class="cart-content-right">
+        <div class="cart-content-tag">
+            <div><%= order_detail.quantity %>個</div>
+            ¥<%= order_detail.item.price.to_s(:delimited) %>
+        </div>
+    </div>
+</div>

@@ -20,7 +20,7 @@
         </li>
       <% elsif admin_signed_in? %>
         <li><%= link_to 'ログアウト(admin)', destroy_admin_session_path, method: :delete, class: "logout" %></li> 
-        <li><%= link_to '注文履歴', admin_all_order_path, class: "cart" %></li>
+        <li><%= link_to '注文履歴', admin_orders_path, class: "cart" %></li>
         <li><%= link_to '出品する', '/admin/items/new', class: "cart" %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
