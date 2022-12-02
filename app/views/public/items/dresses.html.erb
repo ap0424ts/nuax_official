@@ -1,0 +1,48 @@
+<%= render "shared/header"%>
+  <div class='item-indexes'>  
+
+    <div class='item-genre-lists'>
+      <%= link_to root_path do %>
+        <p class="genre-list">ALL<p>
+      <% end %>
+      <%= link_to public_tops_path do %>
+        <p class="genre-list">TOPS<p>
+      <% end %>
+      <%= link_to public_bottoms_path do %>
+        <p class="genre-list">BOTTOMS<p>
+      <% end %>
+      <%= link_to public_dresses_path do %>
+        <p class="genre-list">DRESSES<p>
+      <% end %>
+      <%= link_to public_outer_path do %>
+        <p class="genre-list">OUTERWEAR<p>
+      <% end %>
+    </div>
+
+  
+    <%# 商品一覧 %>
+    <div class='item-contents'>
+      <ul class='item-lists'>
+
+        <% @items.each do |item| %>
+        <li class='list'>
+          <%= link_to public_item_path(item.id) do %>
+          <%= image_tag item.images[0].variant(resize: '380x475') %>
+          <div class='item-info'>
+            <div class='item-name'>
+              <%= item.name %>
+            </div>
+            <div class='item-price'>
+              <span>¥<%= item.price.to_s(:delimited) %><br></span>
+              <div class='star-btn'>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+<%= render "shared/footer"%>

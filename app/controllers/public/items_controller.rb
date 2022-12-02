@@ -9,8 +9,21 @@ class Public::ItemsController < ApplicationController
   end
 
   def tops
-    @items = Item.all.order("created_at DESC")
+    @items = Item.where(genre_id: 2).order("created_at DESC")
   end
+  
+  def bottoms
+    @items = Item.where(genre_id: 3).order("created_at DESC")
+  end
+
+  def dresses
+    @items = Item.where(genre_id: 4).order("created_at DESC")
+  end
+
+  def outer
+    @items = Item.where(genre_id: 5).order("created_at DESC")
+  end
+
   private
 
   def item_params

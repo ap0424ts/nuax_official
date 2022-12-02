@@ -13,13 +13,16 @@ Rails.application.routes.draw do
     resources :carts, only: [:show]do
     end
     resources :items, only: [:index, :show] do
-      get '/tops' => 'items#tops'
       get '/my_cart' => 'carts#my_cart'
       post '/add_item' => 'carts#add_item'
       post '/update_item' => 'carts#update_item'
       delete '/delete_item' => 'carts#delete_item'
       resources :orders, only: [:index, :create]
     end
+    get '/tops' => 'items#tops'
+    get '/bottoms' => 'items#bottoms'
+    get '/dresses' => 'items#dresses'
+    get '/outer' => 'items#outer'
   end
 
   resources :collections, only: [:index, :new, :create, :show, :destroy]
