@@ -4,8 +4,17 @@
     <%= link_to 'NUAX', root_path, class:"logo-link" %>
     <%#= link_to image_tag("nuax-logo.png", class:"logo-link-img"), root_path %>
     <ul class='lists-left'>
-      <li><%= link_to 'SHOP', root_path, class: "shop-list" %></li>
-      <li><%= link_to 'COLLECTION', collections_path, class: "collection-list" %></li>
+      <li class="main_menu"><%= link_to 'SHOP', root_path, class: "shop-list" %>
+          <ul class="sub_menu">
+            <li><a href="#">Test</a></li>
+            <li><a href="#">TOPS</a></li>
+            <li><a href="#">BOTTOMS</a></li>
+            <li><a href="#">DRESSES</a></li>
+            <li><a href="#">OUTERWEAR</a></li>
+          </ul>
+      </li>
+      <li class="main_menu"><%= link_to 'COLLECTION', collections_path, class: "collection-list" %>
+      </li>
     </ul>
 
   </div>
