@@ -82,7 +82,7 @@ header{
   width: 100%;
   transition: .9s;
   z-index: -3;
-  padding-top:10px;
+  margin-top:11px;
 }
 
 .sub_menu>li{
@@ -97,6 +97,7 @@ header{
   width:100px;
   background:red;
 }
-.open{
-  transform: translateY(10px);
+
+.hidden{
+  display: none;
 }
