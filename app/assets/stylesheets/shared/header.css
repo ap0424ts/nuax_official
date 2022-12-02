@@ -38,6 +38,7 @@ header{
   width:15vw;
   display:flex;
   justify-content:space-around;
+  align-items: flex-end;
 }
 
 .lists-right{
@@ -66,4 +67,37 @@ header{
 
 .cart img{
   width: 40%;
+}
+
+.main_menu {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.sub_menu{
+  position: absolute;
+  width: 100%;
+  transition: .9s;
+  z-index: -3;
+  margin-top:11px;
+}
+
+.sub_menu>li{
+  padding:5px 0;
+}
+
+.sub_menu a{
+  color:black;
+}
+
+.sub_menu>li:hover{
+  width:100px;
+  background:red;
+}
+
+.hidden{
+  display: none;
 }
