@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :carts, only: [:show]do
     end
     resources :items, only: [:index, :show] do
+      get '/tops' => 'items#tops'
       get '/my_cart' => 'carts#my_cart'
       post '/add_item' => 'carts#add_item'
       post '/update_item' => 'carts#update_item'

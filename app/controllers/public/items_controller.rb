@@ -8,6 +8,9 @@ class Public::ItemsController < ApplicationController
     @cart_item = CartItem
   end
 
+  def tops
+    @items = Item.all.order("created_at DESC")
+  end
   private
 
   def item_params
