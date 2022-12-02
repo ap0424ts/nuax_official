@@ -65,6 +65,11 @@
         </div>
         <%= f.collection_select(:reservation_id, Reservation.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
       </div>
+        <div class="weight-bold-text">
+          商品種別
+        </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+
     </div>
     <%# /商品の詳細 %>
 

@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :price,          null: false
       t.integer :reservation_id, null: false
       t.integer :size_id,        null: false
+      t.integer :genre_id,       null: false
       t.timestamps
     end
   end

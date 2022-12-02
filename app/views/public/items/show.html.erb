@@ -28,13 +28,12 @@
         <p class="or-text">or</p>
         <%= link_to "削除", "/admin/items/#{@item.id}", method: :delete, class:"item-destroy-btn" %>
       <% else %>
-        <p class="item-size">サイズを選択する</p>
         <%= link_to public_item_add_item_path(@item.id), method: :post do %>
           <button class="item-cart">カートに入れる</button>
         <% end %>
       <% end %>   
       <div class="item-reservation">
-        <% if @item.reservation.id == 4 %>
+        <% if @item.reservation_id == 4 %>
           この商品は予約商品です
         <% end %>
       </div>

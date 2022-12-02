@@ -11,8 +11,8 @@ class Item < ApplicationRecord
   validates :material, presence:true
   validates :centimeter, presence:true, length: { maximum: 1000 }
   validates :price, presence:true, numericality: {only_integer: true }
-  validates :reservation_id, :size_id, numericality: { other_than: 1, message: "can't be blank" } 
+  validates :reservation_id, :size_id, :genre_id, numericality: { other_than: 1, message: "can't be blank" } 
   
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :reservation, :size
+  belongs_to :reservation, :size, :genre
 end

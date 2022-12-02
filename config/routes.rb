@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       delete '/delete_item' => 'carts#delete_item'
       resources :orders, only: [:index, :create]
     end
+    get '/tops' => 'items#tops'
+    get '/bottoms' => 'items#bottoms'
+    get '/dresses' => 'items#dresses'
+    get '/outer' => 'items#outer'
   end
 
   resources :collections, only: [:index, :new, :create, :show, :destroy]
