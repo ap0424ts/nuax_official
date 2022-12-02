@@ -14,5 +14,7 @@ class Item < ApplicationRecord
   validates :reservation_id, :size_id, :genre_id, numericality: { other_than: 1, message: "can't be blank" } 
   
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :reservation, :size, :genre
+  belongs_to :reservation
+  belongs_to :size
+  belongs_to :genre
 end
