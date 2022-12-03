@@ -40,3 +40,47 @@
     </ul>
   </div>
 </header>
+
+  <!-- ここから下はスマホ表示用 -->
+<header class="smp">
+	<div class="smp-header">
+
+			<div class="smp-header_div">
+      	<div class="menu_container">
+          <%= image_tag( 'bars_hoso.png', size: '36x36', class: "menu_open") %>
+          <%= image_tag( 'cross_hoso.png', size: '36x36', class: "menu_close") %>
+				</div>
+      
+      <%= link_to 'NUAX', root_path, class:"smp-title" %>
+
+        <div class="cart_container">
+          <%= image_tag( 'bars_hoso.png', size: '36x36', class: "smp-cart-open") %>
+          <%= image_tag( 'cross_hoso.png', size: '36x36', class: "smp-cart-close") %>
+        </div>
+			</div>
+
+
+
+		<nav class="sample_sp_menu">
+			<ul>
+        <li class="smp_main_menu" id="smp-lists"><p>SHOP</p>
+            <ul class="smp_sub_menu hidden" id="smp-pull-down">
+              <li class="smhーpull-bottun"><a href="/public/items">ALL</a></li>
+              <li class="smhーpull-bottun"><a href="/public/tops">TOPS</a></li>
+              <li class="smhーpull-bottun"><a href="/public/bottoms">BOTTOMS</a></li>
+              <li class="smhーpull-bottun"><a href="/public/dresses">DRESSES</a></li>
+              <li class="smhーpull-bottun"><a href="/public/outer">OUTERWEAR</a></li>
+            </ul>
+        </li>
+        <li><%= link_to 'COLLECTION', collections_path, class: "smp_collection_bottun" %></li>
+				<li>NEWS</li>
+				<li>CONTACT</li>
+			</ul>
+		</nav>
+
+    <nav class="cart_sp_menu">
+ 
+		</nav>
+
+	</div>
+</header>
