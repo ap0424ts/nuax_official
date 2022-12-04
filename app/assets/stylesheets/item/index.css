@@ -54,3 +54,19 @@
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
 }
+
+ /* タブレット表示時 */
+ @media (max-width: 1024px) {
+  .item-lists{
+    padding: 0 50px;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+  }
+}
+
+ /* スマホ表示時 */
+ @media (max-width: 599px) {
+  
+}

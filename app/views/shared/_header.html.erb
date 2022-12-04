@@ -6,11 +6,11 @@
     <ul class='lists-left'>
       <li class="main_menu" id="lists"><p class="shop-list">SHOP</p>
           <ul class="sub_menu hidden" id="pull-down">
-            <li><a href="/public/items">ALL</a></li>
-            <li><a href="/public/tops">TOPS</a></li>
-            <li><a href="/public/bottoms">BOTTOMS</a></li>
-            <li><a href="/public/dresses">DRESSES</a></li>
-            <li><a href="/public/outer">OUTERWEAR</a></li>
+            <li class="pull-bottun"><a href="/public/items">ALL</a></li>
+            <li class="pull-bottun"><a href="/public/tops">TOPS</a></li>
+            <li class="pull-bottun"><a href="/public/bottoms">BOTTOMS</a></li>
+            <li class="pull-bottun"><a href="/public/dresses">DRESSES</a></li>
+            <li class="pull-bottun"><a href="/public/outer">OUTERWEAR</a></li>
           </ul>
       </li>
       <li class="main_menu"><%= link_to 'COLLECTION', collections_path, class: "collection-list" %></li>
@@ -39,4 +39,75 @@
       <% end %>
     </ul>
   </div>
+</header>
+
+  <!-- ここから下はスマホ表示用 -->
+<header class="smp">
+	<div class="smp-header">
+
+			<div class="smp-header_div">
+      	<div class="menu_container">
+          <%= image_tag( 'bars_hoso.png', size: '36x36', class: "menu_open") %>
+          <%= image_tag( 'cross_hoso.png', size: '36x36', class: "menu_close") %>
+				</div>
+      
+      <%= link_to 'NUAX', root_path, class:"smp-title" %>
+
+        <div class="cart_container">
+          <%= image_tag( 'shoppingbag_hoso.png', size: '36x36', class: "smp-cart-open") %>
+          <%= image_tag( 'cross_hoso.png', size: '36x36', class: "smp-cart-close") %>
+        </div>
+			</div>
+
+
+
+		<nav class="sample_sp_menu">
+			<ul>
+        <li class="smp_main_menu" id="smp-lists"><p>SHOP</p>
+            <ul class="smp_sub_menu hidden" id="smp-pull-down">
+              <li class="smhーpull-bottun"><a href="/public/items">ALL</a></li>
+              <li class="smhーpull-bottun"><a href="/public/tops">TOPS</a></li>
+              <li class="smhーpull-bottun"><a href="/public/bottoms">BOTTOMS</a></li>
+              <li class="smhーpull-bottun"><a href="/public/dresses">DRESSES</a></li>
+              <li class="smhーpull-bottun"><a href="/public/outer">OUTERWEAR</a></li>
+            </ul>
+        </li>
+        <li><%= link_to 'COLLECTION', collections_path, class: "smp_collection_bottun" %></li>
+				<li>NEWS</li>
+				<li>CONTACT</li>
+			</ul>
+		</nav>
+
+    <nav class="cart_sp_menu">
+
+      <div class="smp-cart-contents">
+        <div class="smp-cart-top">
+          <%= notice %>
+          <%= alert %>
+          <%= render partial: "shared/smp_cart_item", collection: current_cart.cart_items.includes([:item]), as: "cart_item"%>
+          <div class="smp-cart-total-price">
+          <% if current_cart.cart_items.includes([:item]).inject(0) { |sum, item| sum + item.sum_of_price } == 0 %>
+            <p>カートの中身はありません。</p>
+          <% elsif %>
+            <p>合計</p>
+            ¥<%= current_cart.cart_items.includes([:item]).inject(0) { |sum, item| sum + item.sum_of_price }.to_s(:delimited) %>
+          <% end %>
+          </div>
+        </div>
+        <div class="smp-cart-bottom">
+        <% if current_cart.cart_items.includes([:item]).inject(0) { |sum, item| sum + item.sum_of_price } == 0 %>
+          <%= link_to root_path do %>
+            <button class="smp-checkout">トップページへ戻る</button>
+          <% end %>
+        <% elsif %>
+          <%= link_to public_item_orders_path(current_cart.id) do %>
+            <button class="smp-checkout">お支払いへ進む</button>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+      
+		</nav>
+
+	</div>
 </header>
