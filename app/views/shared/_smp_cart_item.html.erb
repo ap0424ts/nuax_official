@@ -13,8 +13,7 @@
             ¥<%= cart_item.item.price.to_s(:delimited) %>
         </div>
         <div class="smp-cart-content-tag">
-            <%= button_to "削除", public_item_delete_item_path(item_id: cart_item.item.id), method: :delete, class:"cart-destroy-btn",
-                                            data: { confirm: "商品を削除しますか？" } %>
+            <%= button_to "削除", public_item_delete_item_path(item_id: cart_item.item.id), method: :delete, class:"cart-destroy-btn" %>
         </div>
     </div>
 </div>
