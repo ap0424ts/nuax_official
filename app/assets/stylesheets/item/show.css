@@ -91,3 +91,79 @@
   color: red;
   font-weight: 900;
 }
+
+
+@media (max-width: 599px) {
+  .item-show{
+    display: none;
+  }
+
+  .smp-item-show{
+    width:100vw;
+    padding-top: 55px;
+  }
+
+  .smp-item-box-center{
+    width:100vw;
+    padding:0 5px;
+    display:flex;
+    flex-direction:column;
+  }
+  
+  .smp-item-box-image{
+    padding-bottom:5px;
+  }
+  
+  .smp-item-box-bottom{
+    height:80px;
+    width: 100vw;
+    display: flex;
+    flex-direction:column;
+    position: relative;
+    border-top:1px solid black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index:2;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding:5px;
+  }
+
+  .smp-item-explain-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:5px 0;
+  }
+
+  .smp-item-explain-name{
+    font-weight:900;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .smp-item-detail{
+    width:30%;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border:1px solid black;
+    border-radius : 0;
+    color:black;
+    background-color:white;
+  }
+
+  .smp-add-cart{
+    margin-top:5px;
+    height:26px;
+    width:100%;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border:1px solid black;
+    border-radius : 0;
+    color:white;
+    background-color:black;
+  }
+
+
+}

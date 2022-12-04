@@ -42,4 +42,31 @@
 
 </div>
 
+<!-- ここから下はスマホ表示-->
+
+<div class="smp-item-show">
+
+  <div class="smp-item-box-center">
+    <% @item.images.each do |image| %>
+      <%= image_tag image.variant(resize: '400x400'), class: "smp-item-box-image" %>
+    <% end %>
+  </div>
+
+  <div class="smp-item-box-bottom">
+    <div class="smp-item-explain-box">
+      <div class="smp-item-explain-name"><%= @item.name %></div>
+      <button class="smp-item-detail">詳細を確認する</button>
+    </div> 
+    <div class="smp-item-box-cart">
+      <% if @item.reservation_id == 4 %>
+        <button class="smp-add-cart">予約商品をカートへ追加する</button>
+      <% else %>
+        <button class="smp-add-cart">カートへ追加する</button>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
+
 <%= render "shared/footer" %>
