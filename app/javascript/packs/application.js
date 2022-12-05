@@ -10,6 +10,7 @@ require("channels")
 require("../card")
 require("../header")
 require("../smp_header")
+require("../item")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

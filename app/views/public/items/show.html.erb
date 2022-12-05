@@ -1,5 +1,7 @@
 <%= render "shared/header" %>
 
+<script src="item.js"></script>
+
 <%# 商品の概要 %>
 <div class="item-show">
 
@@ -55,17 +57,33 @@
   <div class="smp-item-box-bottom">
     <div class="smp-item-explain-box">
       <div class="smp-item-explain-name"><%= @item.name %></div>
-      <button class="smp-item-detail">詳細を確認する</button>
+
+      <div class="smp-detail_container">
+        <button class="detail_open", id="submit">詳細を確認する</button>
+        <button class="detail_close", id="submit">詳細を閉じる</button>
+			</div>
+
     </div> 
     <div class="smp-item-box-cart">
       <% if @item.reservation_id == 4 %>
-        <button class="smp-add-cart">予約商品をカートへ追加する</button>
+        <%= link_to public_item_add_item_path(@item.id), method: :post do %>
+          <button class="smp-add-cart">予約商品をカートへ追加する</button>
+        <% end %>
       <% else %>
-        <button class="smp-add-cart">カートへ追加する</button>
+        <%= link_to public_item_add_item_path(@item.id), method: :post do %>
+          <button class="smp-add-cart">カートへ追加する</button>
+        <% end %>
       <% end %>
     </div>
   </div>
 
+	<nav class="sample_detail_menu">
+    <div class="smp-item-detail-box">
+      <span class="item-explain-contents"><%= safe_join(@item.content.split("\n"),tag(:br)) %></span><br>
+      <span class="item-explain-contents"><%= safe_join(@item.material.split("\n"),tag(:br)) %></span><br>
+      <span class="item-explain-contents"><%= safe_join(@item.centimeter.split("\n"),tag(:br)) %></span><br>
+    </div>
+	</nav>
 
 </div>
 
