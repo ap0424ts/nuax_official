@@ -1,5 +1,4 @@
-window.addEventListener('load', post, function(){
-
+window.addEventListener('load', function(){
   // スマホ用 アイテム詳細欄 詳細を確認するを押下時のアクション
   const DetailContainer = document.querySelector('.smp-detail_container');
   const DetailOpen = document.querySelector('.detail_open');
