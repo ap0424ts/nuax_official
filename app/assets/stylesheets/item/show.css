@@ -91,3 +91,160 @@
   color: red;
   font-weight: 900;
 }
+
+.smp-item-show{
+  display:none;
+}
+
+@media (max-width: 599px) {
+  .item-show{
+    display: none;
+  }
+
+  .smp-item-show{
+    width:100vw;
+    padding-top: 55px;
+    display:block;
+  }
+
+  .smp-item-box-center{
+    width:100vw;
+    padding:0 5px;
+    display:flex;
+    flex-direction:column;
+  }
+  
+  .smp-item-box-image{
+    padding-bottom:5px;
+  }
+  
+  .smp-item-box-bottom{
+    height:80px;
+    width: 100vw;
+    display: flex;
+    flex-direction:column;
+    position: relative;
+    border-top:1px solid black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index:1;
+    background-color:white;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding:5px;
+  }
+
+  .smp-item-explain-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:5px 0;
+  }
+
+  .smp-item-explain-name{
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  .smp-item-detail{
+    width:30%;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border:1px solid black;
+    border-radius : 0;
+    color:black;
+    background-color:white;
+  }
+
+  .smp-add-cart{
+    margin-top:5px;
+    height:26px;
+    width:100%;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border:1px solid black;
+    border-radius : 0;
+    color:white;
+    background-color:black;
+  }
+
+
+  /* ここから下でディティールを表示 */
+  .sample_detail_menu {
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: -600px;
+    width: 100%;
+    padding-bottom:80px;
+    display: grid;
+    color: black;
+    text-align: left;
+    transition: .4s;
+    padding-left:18px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border:1px solid black;
+    position: fixed;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  
+  .sample_detail_menu.active {
+		left: 0;
+	}
+
+  .sample_detail_menu ul {
+    padding-inline: 0;
+  }
+  .sample_detail_menu li {
+    list-style: none;
+    margin-top: 1.5rem;
+    cursor: pointer;
+  }
+
+  .smp-detail_container{
+    position:relative;
+    width:40vw;
+  }
+
+  .smp-detail_container button{
+    font-size: 10px;
+    letter-spacing: 1px;
+    background-color:white;
+    border:1px solid black;
+  }
+
+    .detail_open {
+      position:absolute;
+      bottom:-13px;
+      right:0;
+      margin-right:5px;
+      opacity: 1;
+      transition: 0.5s;
+    }
+      .detail_open.active {
+        opacity: 0;
+      }  
+    .detail_close {
+      position:absolute;
+      bottom:-13px;
+      right:0;
+      margin-right:5px;
+      opacity: 0;
+      transition: 0.5s;
+    }
+      .detail_close.active {
+        opacity: 1;
+      }
+
+  .smp-item-detail-box{
+    font-size: 10px;
+    letter-spacing: 1px;
+    display:flex;
+    flex-direction:column;
+  }
+
+
+}
