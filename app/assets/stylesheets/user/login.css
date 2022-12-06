@@ -1,11 +1,10 @@
 .form-wrap{
-  height:calc(100vh - 100px);
   width:100vw;
   margin-top:100px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top:55px;
+  margin:55px 0;
 }
 
 .form-header{
