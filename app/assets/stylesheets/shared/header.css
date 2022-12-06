@@ -111,6 +111,11 @@ header{
   display: none;
 }
 
+.smp-cart-top{
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
  /* タブレット表示時 */
  @media (max-width: 1024px) {
   .logo-link{

@@ -41,12 +41,50 @@
   display:flex;
   justify-content:center;
   align-items:center;
+  position:relative;
+  border:1px solid black;
+  margin: 5px;
 }
 
-.season-name{
-  padding-top:30px;
-  font-size: 12px;
+.season_name{
+  position:absolute;
+  width:100%;
+  bottom:0;
+  left:0;
+  font-size:12px;
   letter-spacing: 1px;
-  display:flex;
-  justify-content:center;
+  background-color:black;
+  color:white;
+}
+
+img.collection-box-image{
+  height:100%;
+}
+
+/* ここから下はスマホ表示用 */
+@media (max-width: 599px) {
+  .collection-contents{
+    padding-top:55px;
+    width:100vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
+
+  img.collection-index-image{
+    width:100%;
+  }
+
+  .collection-box-center{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
+
+  img.collection-box-image{
+    width:100%;
+    border:1px solid black;
+  }
 }

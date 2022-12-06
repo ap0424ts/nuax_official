@@ -223,6 +223,7 @@
       margin-right:5px;
       opacity: 1;
       transition: 0.5s;
+      color:black;
     }
       .detail_open.active {
         opacity: 0;
@@ -234,6 +235,7 @@
       margin-right:5px;
       opacity: 0;
       transition: 0.5s;
+      color:black;
     }
       .detail_close.active {
         opacity: 1;
