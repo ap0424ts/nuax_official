@@ -44,10 +44,10 @@ class Public::OrdersController < ApplicationController
       end
     
     else
+      @cart_items = current_cart.cart_items.includes([:item])
+      @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
       render :index
     end
-
-
 
   end
   
@@ -64,7 +64,7 @@ class Public::OrdersController < ApplicationController
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: @total,  # 商品の値段
+      amount: @total,
       card: order_params[:token],
       currency: 'jpy'
     )

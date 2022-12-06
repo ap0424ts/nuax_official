@@ -77,3 +77,100 @@ input::placeholder{
   font-size: 12px;
   letter-spacing: 1px;
 }
+
+@media (max-width: 599px) {
+  .transaction-contents{
+    padding : 55px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .transaction-title-text{
+    margin-bottom: 25px;
+    width:350px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color:black;
+  }
+  
+  .transaction-main{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    width: 100vw;
+  }
+  
+  .credit-card-form{
+    margin-top:15px;
+    margin-bottom:15px;
+  }
+  
+  .form-group-under{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .input-expiration-date, .input-default-cvc{
+    width:70px;
+    border:1px solid black;
+    border-radius : 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color:black;
+  }
+  
+  .input-expiration-date{
+    margin-top: 4px;
+  }
+  
+  .item-payment-title{
+    margin-top:5px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color:black;
+    text-align: right;
+    border-bottom:1px solid black;
+  }
+  
+  .info-input-haedline, .info-input-haedline{
+    font-size: 12px;
+    letter-spacing: 1px;
+    color:black;
+    border-bottom:1px solid black;
+  }
+  
+  .buy-red-btn{
+    margin-top:15px;
+    height:30px;
+    width: 300px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border:1px solid black;
+    border-radius : 0;
+    color: white;
+    background-color: black;
+  }
+  
+  input::placeholder{
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .order-contents{
+    width:350px;
+    margin-top: 15px;
+    padding: 5px 25px;
+    display:flex;
+    justify-content:space-between;
+    font-size:10px;
+  }
+  
+  .cart-content-center{
+    margin:0 25px;
+  }
+}

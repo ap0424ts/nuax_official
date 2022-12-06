@@ -6,7 +6,7 @@ class OrderShipping
     validates :token
     validates :last_name,   format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
     validates :first_name,  format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
-    validates :post_code,   format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :post_code,   format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "はハイフンを入れて入力してください"}
     validates :state
     validates :city
     validates :addres

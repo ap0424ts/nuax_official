@@ -58,3 +58,18 @@
   color:red;
   font-weight:900;
 }
+
+.smp-cart-items{
+  display:none;
+}
+
+/* ここから下はスマホ表示用 */
+@media (max-width: 599px) {
+  .cart-contents{
+    display:none;
+  }
+
+  .smp-cart-items{
+    display:block;
+  }
+}
