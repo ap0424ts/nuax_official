@@ -10,3 +10,18 @@
 .cart-content-center{
   margin:0 25px;
 }
+
+.smp-cart-contents{
+  display:none;
+}
+
+@media (max-width: 599px) {
+  .cart-top{
+    display:none;
+  }
+
+  .smp-cart-contents{
+    display:block;
+    margin-top:55px;
+  }
+}

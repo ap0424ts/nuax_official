@@ -57,6 +57,7 @@
   <div class="smp-item-box-bottom">
     <div class="smp-item-explain-box">
       <div class="smp-item-explain-name"><%= @item.name %></div>
+      <div class="smp-item-price">¥<%= @item.price.to_s(:delimited) %></div>
 
       <div class="smp-detail_container">
         <button class="detail_open", id="submit">詳細を確認する</button>

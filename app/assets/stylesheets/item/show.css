@@ -246,5 +246,11 @@
     flex-direction:column;
   }
 
+  .smp-item-price{
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-left:15px;
+  }
+
 
 }

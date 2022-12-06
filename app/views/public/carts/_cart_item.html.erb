@@ -18,3 +18,24 @@
         </div>
     </div>
 </div>
+
+<%# ここから下はスマホ表示用 %>
+<div class="smp-cart-items">
+    <%= image_tag cart_item.item.images[0].variant(resize: '100 x 125') %>
+    <div class="smp-cart-content-center">
+        <%= cart_item.item.name %>
+        <p>size:free</p>
+        <% if cart_item.item.reservation_id == 4 %>
+          <p class="reservation-red">この商品は予約商品です
+        <% end %>
+    </div>
+    <div class="smp-cart-content-right">
+        <div class="smp-cart-content-tag">
+            <div><%= cart_item.quantity %>個</div>
+            ¥<%= cart_item.item.price.to_s(:delimited) %>
+        </div>
+        <div class="smp-cart-content-tag">
+            <%= button_to "削除", public_item_delete_item_path(item_id: cart_item.item.id), method: :delete, class:"cart-destroy-btn" %>
+        </div>
+    </div>
+</div>

@@ -28,3 +28,31 @@
 </div>
 
 <%= render "shared/footer"%>
+
+<%# ここから下はスマホ表示用 %>
+      <div class="smp-cart-contents">
+        <div class="smp-cart-top">
+          <%= notice %>
+          <%= alert %>
+          <%= render partial: "shared/smp_cart_item", collection: current_cart.cart_items.includes([:item]), as: "cart_item"%>
+          <div class="smp-cart-total-price">
+          <% if current_cart.cart_items.includes([:item]).inject(0) { |sum, item| sum + item.sum_of_price } == 0 %>
+            <p>カートの中身はありません。</p>
+          <% elsif %>
+            <p>合計</p>
+            ¥<%= current_cart.cart_items.includes([:item]).inject(0) { |sum, item| sum + item.sum_of_price }.to_s(:delimited) %>
+          <% end %>
+          </div>
+        </div>
+        <div class="smp-cart-bottom">
+        <% if current_cart.cart_items.includes([:item]).inject(0) { |sum, item| sum + item.sum_of_price } == 0 %>
+          <%= link_to root_path do %>
+            <button class="smp-checkout">トップページへ戻る</button>
+          <% end %>
+        <% elsif %>
+          <%= link_to public_item_orders_path(current_cart.id) do %>
+            <button class="smp-checkout">お支払いへ進む</button>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
