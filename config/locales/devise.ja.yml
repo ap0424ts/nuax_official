@@ -20,3 +20,13 @@ ja:
          addres: 番地
          phone_number: 電話番号
          
+  devise:
+    confirmations:
+      confirmed: メールアドレスが確認できました。
+      new:
+    failure:
+      already_authenticated: すでにログインしています。
+      invalid: "%{authentication_keys}またはパスワードが違います。"
+      not_found_in_database: "%{authentication_keys}またはパスワードが違います。"
+      timeout: セッションがタイムアウトしました。もう一度ログインしてください。
+      unauthenticated: ログインもしくはアカウント登録してください。
