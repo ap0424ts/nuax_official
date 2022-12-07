@@ -8,6 +8,30 @@ ja:
         first_name: 名前
         last_name_kana: 苗字(カナ)
         first_name_kana: 名前(カナ)
+
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "が空欄です"
+              invalid: "はアルファベットと数字を含めた6文字以上で設定してください"
+            email:
+              blank: "が空欄です"
+              invalid: "は不正な値です"
+            last_name:
+              blank: "が空欄です"
+              invalid: "は不正な値です"
+            first_name:
+              blank: "が空欄です"
+              invalid: "は不正な値です"
+            last_name_kana:
+              blank: "が空欄です"
+              invalid: "は不正な値です"
+            first_name_kana:
+              blank: "が空欄です"
+              invalid: "は不正な値です"
+
   activemodel:   # Formオブジェクトを用いた場合
      attributes:
        order_shipping:
