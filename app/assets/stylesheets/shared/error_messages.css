@@ -3,3 +3,8 @@
   letter-spacing: 1px;
   color:red;
 }
+
+.login-flash-message{
+  font-size: 12px;
+  letter-spacing: 1px;
+}
