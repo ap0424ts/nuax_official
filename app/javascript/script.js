@@ -35,5 +35,14 @@ $(function() {
     }
 
   )
+  $('.item-cart').hover(
+    function(){
+      $(this).css('color','lightgray')
+    },
+    function(){
+      $(this).css('color','white')
+    }
+
+  )
 
 });
