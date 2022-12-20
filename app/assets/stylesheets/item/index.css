@@ -55,6 +55,20 @@
   -ms-transform: translateX(-50%);
 }
 
+.pagination{
+  font-size: 12px;
+  letter-spacing: 5px;
+  color:black;
+  padding-top:15px;
+  display:flex;
+  justify-content:center;
+}
+
+.pagination a{
+  color:black;
+}
+
+
  /* タブレット表示時 */
  @media (max-width: 1024px) {
   .item-lists{
