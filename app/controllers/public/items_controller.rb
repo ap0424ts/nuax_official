@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.page(params[:page]).per(3)
   end
 
   def show
