@@ -26,5 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :collections, only: [:index, :new, :create, :show, :destroy]
+  resources :contacts, only: [:index]
+  get '/confirm' => 'contacts#confirm'
 
 end
