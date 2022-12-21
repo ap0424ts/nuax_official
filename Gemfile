@@ -69,6 +69,8 @@ gem 'payjp'
 gem "aws-sdk-s3", require: false
 gem 'rails-i18n'
 gem 'kaminari'
+gem 'dotenv-rails'
+gem 'mailcatcher'
 
 group :production do
   gem 'unicorn', '5.4.1'
