@@ -83,3 +83,10 @@
   background-color:black;
   color:white;
 }
+
+.submit-btns{
+  font-size:10px;
+  letter-spacing: 1px;
+  display:flex;
+  flex-direction:column;
+}
