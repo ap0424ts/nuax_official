@@ -17,6 +17,9 @@
 .form-text-wrap{
   margin-top:10px;
   margin-bottom:5px;
+  font-size:12px;
+  letter-spacing: 1px;
+
 }
 
 .form-text, .login-btn, .form-header-text, .form-footer-text, .sign-up{
@@ -65,4 +68,18 @@
   border-bottom:1px solid black;
   border-radius : 0;
   color:black;
+}
+
+.alert-danger{
+  color:red;
+}
+
+.submit-btn{
+  height:30px;
+  margin-top:20px;
+  width:300px;
+  border:1px solid black;
+  border-radius : 0;
+  background-color:black;
+  color:white;
 }
